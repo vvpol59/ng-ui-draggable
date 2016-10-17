@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="draggableApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>UI Draggable</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="angular-1.2.30.js"></script>
+    <script src="ng-ui-draggable/ng-ui-draggable.js"></script>
+    <!-- link rel="stylesheet" type="text/css" href="ng-ui-dialog/ng-ui-dialog.css" -->
+    <style>
+        html, body  {
+            height: 100%;
+        }
+        .test1  {
+            cursor: move;
+        }
+        .test1, .test2 {
+            display: inline-block;
+            padding: 30px 20px;
+            background-color: #ffeeff;
+            border: 1px solid #ff0000;
+        }
+        .handler    {
+            background-color: #888888;
+            cursor: move;
+        }
+    </style>
+    <style>
+        .ng-ui-draggable-handler    {
+            cursor: move;
+        }
+    </style>
+    <script>
+        /**
+         * Контроллер
+         * @param $scope
+         */
+        function testApp($scope) {
+            // Показать диалог с uidDialog
+            $scope.showBox = function (uid) {
+                $scope.dialogsVisible[uid] = true;
+            };
+            // Скрыть диалог с uidDialog
+            $scope.closeDialog = function (uidDialog) {
+                $scope.dialogsVisible[uidDialog] = false;
+            };
+        }
+    </script>
+</head>
+<body ng-controller="testApp">
+<!-- button ng-click="showTest(1)">Simple</button>
+<button ng-click="showTest(2)">Handler</button -->
+
+<div ng-ui-draggable class="test1">
+    Simple
+</div>
+
+<div ng-ui-draggable='{"handler-class":"handler"}' class="test2">
+    <div class="handler">handler</div>
+    Handler
+</div>
+
+
+</body>
+</html>
